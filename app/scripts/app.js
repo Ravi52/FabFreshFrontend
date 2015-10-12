@@ -50,6 +50,16 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'iron'
       })
+      .when('/orderStatusWash/:id',{
+        template : '',
+        controller: 'statusUpdateCtrlWash',
+        controllerAs: 'statusWash'
+      })
+      .when('/orderStatusDry/:id',{
+        template : '',
+        controller: 'statusUpdateCtrlDry',
+        controllerAs: 'statusDry'
+      })
 
       .otherwise({
         redirectTo: '/'

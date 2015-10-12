@@ -14,12 +14,12 @@ angular.module('factoryPageApp')
   .controller('OrderCtrl', function($scope,$routeParams,ergastAPIservice) {
     $scope.id = $routeParams.id;
     $scope.ordersList = [];
-    $scope.order = null
+    $scope.order = null;
+    var alert;
+    ergastAPIservice.getOrderDetails($scope.id).success(function (response) {
+      $scope.order = response;
 
-    ergastAPIservice.getOrderDetails($scope.id).success(function (response,status) {
-      $scope.order = response
-
-    }).error(function(data, status) {
+    }).error(function(data) {
       alert(data);
     });
 
