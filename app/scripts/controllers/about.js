@@ -12,11 +12,14 @@ angular.module('factoryPageApp')
     $scope.nameFilter = null;
     $scope.ordersList = [];
 
-    ergastAPIservice.getDrivers().success(function (response,status) {
-      //Dig into the responde to get the relevant data
+    $scope.searchFilter = function (orders) {
+      var re = new RegExp($scope.nameFilter, 'i');
+      return !$scope.nameFilter || re.test(orders.id) || re.test(orders.owner);
+    };
+
+    ergastAPIservice.getOrders().success(function (response,status) {
 
       $scope.ordersList = response
-
 
     }).error(function(data, status) {
       alert(status);

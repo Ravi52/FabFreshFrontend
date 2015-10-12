@@ -3,7 +3,7 @@
  */
 'use strict';
 
-/**
+/**;
  * @ngdoc function
  * @name factoryPageApp.controller:AboutCtrl
  * @description
@@ -11,14 +11,24 @@
  * Controller of the factoryPageApp
  */
 angular.module('factoryPageApp')
-  .controller('ordersCtrl', function($scope, ergastAPIservice) {
-    $scope.nameFilter = null;
+  .controller('OrderCtrl', function($scope,$routeParams,ergastAPIservice) {
+    $scope.id = $routeParams.id;
     $scope.ordersList = [];
+    $scope.order = null
 
-    ergastAPIservice.getOrders().success(function (response) {
-      $scope.ordersList =response;
-      alert(response);
+    ergastAPIservice.getOrderDetails($scope.id).success(function (response,status) {
+      $scope.order = response
+
     }).error(function(data, status) {
-      alert(status);
+      alert(data);
     });
+
+   /* ergastAPIservice.setAmount().success(function(response,status){
+      //alert("asd");
+    }).error(function(data,status){
+      alert("this is setAmout")
+      alert(status)
+    });
+*/
   });
+

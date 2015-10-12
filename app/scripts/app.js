@@ -25,16 +25,32 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
+      .when('/orderlist', {
+        templateUrl: '../views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/orders',{
+      .when('/orders/:id',{
         templateUrl : 'views/orders.html',
-        controller: 'ordersCtrl',
-        controllerAs: 'orders'
+        controller: 'OrderCtrl',
+        controllerAs: 'order'
       })
+      .when('/wash', {
+        templateUrl: '../views/wash.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'wash'
+      })
+      .when('/dry', {
+        templateUrl: '../views/dry.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'dry'
+      })
+      .when('/iron',{
+        templateUrl:'../views/iron.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'iron'
+      })
+
       .otherwise({
         redirectTo: '/'
       });
