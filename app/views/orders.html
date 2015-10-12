@@ -1,0 +1,19 @@
+<p>This is the orders view.</p>
+<input type="text" ng-model="nameFilter" placeholder="Search..."/>
+<table>
+  <thead>
+  <tr><th colspan="4">Order List</th></tr>
+  </thead>
+  <tbody>
+  <tr  ng-repeat="orders in ordersList ">
+    <td>{{$index + 1}}</td>
+    <td>{{orders.id}}</td>
+    <td>{{orders.status}}</td>
+    <td>asd</td>
+  </tr>
+  </tbody>
+
+</table>
+
+
+
