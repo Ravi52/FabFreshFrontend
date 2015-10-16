@@ -15,20 +15,23 @@ angular.module('factoryPageApp')
     $scope.id = $routeParams.id;
     $scope.ordersList = [];
     $scope.order = null;
-    var alert;
-    ergastAPIservice.getOrderDetails($scope.id).success(function (response) {
+
+   /* ergastAPIservice.getOrderDetails($scope.id).success(function (response) {
       $scope.order = response;
 
     }).error(function(data) {
       alert(data);
     });
-
-   /* ergastAPIservice.setAmount().success(function(response,status){
-      //alert("asd");
-    }).error(function(data,status){
-      alert("this is setAmout")
-      alert(status)
-    });
 */
+    ergastAPIservice.getOrderDetails($scope.id)
+     .then(
+		function(response){
+			 $scope.ordersList = response;
+
+		},
+		function(httpError){
+			throw httpError.status;
+		}
+	);
   });
 

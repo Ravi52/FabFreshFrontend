@@ -11,19 +11,24 @@ angular.module('factoryPageApp')
   .controller('AboutCtrl', function($scope, ergastAPIservice, $q) {
     $scope.nameFilter = null;
     $scope.ordersList = [];
-
+    var alert;
     $scope.searchFilter = function (orders) {
       var re = new RegExp($scope.nameFilter, 'i');
       return !$scope.nameFilter || re.test(orders.id) || re.test(orders.owner);
     };
+    
+    var defer = $q.defer();
+
 	
     ergastAPIservice.getOrders()
 	.then(
+		
 		function(response){
-			 $scope.ordersList = response;
+			
+			 $scope.ordersList = response;		
 		},
-		function(httpError){
-			throw httpError.status;		
+		function(error){
+			console.log(error.statusText);		
 		}
 	);
 

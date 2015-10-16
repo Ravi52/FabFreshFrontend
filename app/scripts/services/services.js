@@ -1,22 +1,58 @@
 'use strict';
 angular.module('F1FeederApp.services', []).
-  factory('ergastAPIservice', function($http) {
-    $http.defaults.headers.common.Authorization = 'Bearer oj1yZA172yKaGL7oWUwg1qQg7bJGc8';
+  factory('ergastAPIservice', function($http, $q) {
+    $http.defaults.headers.common.Authorization = 'Bearer 29fEhsSxh0H8NBwzmwiopbmX90WkLa';
     $http.defaults.headers.post["Content-Type"] = "application/json";
     $http.defaults.headers.patch["Content-Type"] = "application/json";
     var ergastAPI = {};
 
-    ergastAPI.getOrders = function() {
+	var deferred = $q.defer();
+	
+	ergastAPI.getOrders = function() {
+		return $http({
+		    url : 'https://evening-refuge-7944.herokuapp.com/orders.json',
+		    method : 'GET'
+		})
+			.then(function(response){
+				deferred.resolve(response.data);
+                		return deferred.promise;
+            		},function(response){
+				deferred.reject(response);
+                		return deferred.promise;			
+			});
+	};
+
+	ergastAPI.setStatusIron = function(id){
+      //deferred = $q.defer();
+      var data = {
+        "status" : 5
+     };
       return $http({
-        //method: 'JSONP',
-        url: 'http://127.0.0.1:8000/orders.json?callback=JSON_CALLBACK'
-      });
+        data : data,
+        method : 'PATCH',
+        url : 'https://evening-refuge-7944.herokuapp.com/orders/'+id+'.json'
+      })
+      .then(function(response){
+            deferred.resolve(response.data);
+                return deferred.promise;
+                },function(response){
+                    deferred.reject(response);
+                        return deferred.promise;
+                });
     };
 
-    ergastAPI.getOrderDetails = function(id){
+	ergastAPI.getOrderDetails = function(id){
       return $http({
-        url : 'http://127.0.0.1:8000/orders/'+ id + '.json'
-      });
+	method : 'GET',
+        url : 'https://evening-refuge-7944.herokuapp.com/orders/'+ id + '.json'
+      })
+      .then(function(response){
+            deferred.resolve(response.data);
+                return deferred.promise;
+                },function(response){
+                    deferred.reject(response);
+                        return deferred.promise;
+                });
     };
 
     ergastAPI.setAmount = function(amount,id,weight,quantity){
@@ -30,8 +66,14 @@ angular.module('F1FeederApp.services', []).
       return $http({
         data : data,
         method : 'PATCH',
-        url: 'http://127.0.0.1:8000/orders/'+ id +'.json?'
-      });
+        url: 'https://evening-refuge-7944.herokuapp.com/orders/'+ id +'.json'
+      }).then(function(response){
+            deferred.resolve(response.data);
+                return deferred.promise;
+                },function(response){
+                    deferred.reject(response);
+                        return deferred.promise;
+                });
     };
 
     ergastAPI.setStatusWash = function(id){
@@ -41,7 +83,7 @@ angular.module('F1FeederApp.services', []).
       return $http({
         data : data,
         method : 'PATCH',
-        url : 'http://127.0.0.1:8000/orders/'+id+'.json'
+        url : 'https://evening-refuge-7944.herokuapp.com/orders/'+id+'.json'
       });
 
     };
@@ -53,9 +95,11 @@ angular.module('F1FeederApp.services', []).
       return $http({
         data : data,
         method : 'PATCH',
-        url : 'http://127.0.0.1:8000/orders/'+id+'.json'
+        url : 'https://evening-refuge-7944.herokuapp.com/orders/'+id+'.json'
       });
     };
+
+
 
     return ergastAPI;
   });

@@ -60,11 +60,6 @@ angular
         controller: 'statusUpdateCtrlDry',
         controllerAs: 'statusDry'
       })
-      .when('/orderStatusIron/:id',{
-        template : '',
-        controller: 'statusUpdateCtrlIron',
-        controllerAs: 'statusIron'
-      })
 
       .otherwise({
         redirectTo: '/'

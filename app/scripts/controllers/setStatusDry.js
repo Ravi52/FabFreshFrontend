@@ -3,12 +3,13 @@
  */
 'use strict';
 angular.module('factoryPageApp')
-  .controller('statusUpdateCtrlDry', function($scope,$routeParams,ergastAPIservice,$location) {
+  .controller('statusUpdateCtrlDry', function($scope,$routeParams,ergastAPIservice,$location,$window) {
     $scope.id = $routeParams.id;
-    var alert;
+
     ergastAPIservice.setStatusDry($scope.id).success(function () {
       alert("Status updated");
-      $location.path('/dry');
+      $window.location.href = 'http://localhost:9000/#/dry';
+      $window.location.reload();
 
     }).error(function (data, status) {
       alert(status);

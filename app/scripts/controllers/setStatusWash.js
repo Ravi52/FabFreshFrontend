@@ -3,13 +3,26 @@
  */
 'use strict';
 angular.module('factoryPageApp')
-  .controller('statusUpdateCtrlWash', function($scope,$routeParams,ergastAPIservice,$location) {
+  .controller('statusUpdateCtrlWash', function($window, $scope,$routeParams,ergastAPIservice,$location, $q) {
     $scope.id = $routeParams.id;
-    var alert;
+
+/*
+     ergastAPIservice.setStatusWash($scope.id)
+     .then(
+		function(){
+			alert("Status updated");
+		},
+		function(httpError){
+			throw httpError.status;
+		}
+	);
+
+*/
     ergastAPIservice.setStatusWash($scope.id).success(function () {
 
       alert("Status updated");
-      $location.path('/wash');
+      $window.location.href = 'http://localhost:9000/#/wash';
+      $window.location.reload();
 
     }).error(function (data, status) {
       alert(status);

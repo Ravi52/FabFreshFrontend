@@ -1,10 +1,12 @@
 <input type="text" ng-model="nameFilter" placeholder="Search..."/>
-<ul ng-repeat="orders in ordersList | filter:{status:1} | filter: searchFilter"  ng-init="initFirst()">
+<ul ng-orders="orders in ordersList | filter:{status:1} | filter: searchFilter">
   <a href="http://localhost:9000/#/orders/{{orders.id}}">
   <li>
-    {{render(order)}}
+	
     {{orders.id}}
     {{orders.owner}}
   </li>
+
   </a>
 </ul>
+
