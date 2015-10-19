@@ -1,6 +1,6 @@
 <input type="text" ng-model="nameFilter" placeholder="Search..."/>
 <ul ng-repeat="orders in ordersList | filter:{status:4} | filter: searchFilter">
-  <a href="http://localhost:9000/#/orderStatusIron/{{orders.id}}">
+  <a href="http://52.27.27.85/#/orderStatusIron/{{orders.id}}">
   <li>
     {{render(order)}}
     {{orders.id}}

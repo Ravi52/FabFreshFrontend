@@ -8,7 +8,7 @@ angular.module('factoryPageApp')
 
     ergastAPIservice.setStatusDry($scope.id).success(function () {
       alert("Status updated");
-      $window.location.href = 'http://localhost:9000/#/dry';
+      $window.location.href = 'http://52.27.27.85/#/dry';
       $window.location.reload();
 
     }).error(function (data, status) {
