@@ -81,3 +81,28 @@ body {
     border-bottom: 0;
   }
 }
+li {
+    border-color : green;
+     margin: 40px 0;
+    }
+
+ul {
+    font-size: 0;
+}
+
+ul li {
+    font-size: 20px;
+
+}
+
+/* for table*/
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 10px;
+    font-size:15px;
+    margin-bottom:50px
+}
+th, td {
+    padding: 30px;
+}

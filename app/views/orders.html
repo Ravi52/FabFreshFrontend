@@ -5,12 +5,12 @@
 
 <h2>{{order.owner}}</h2>
 
-<div ng-controller="OrderUpdateCtrl">
-<form ng-submit="submit()">
+<div ng-controller="OrderUpdateCtrl" >
+  <form ng-submit="submit()">
 
-  <input type="text" placeholder="Weight" ng-model="weight" required></br></br>
+  <input type="text" placeholder="Weight" ng-model="weight" id="ordertype" ></br></br>
   <input type="text" placeholder="Quantity" ng-model="quantity" required></br></br>
-  <input type="text" placeholder="Amount" ng-model="amount" required></br></br>
+  <input type="text" placeholder="Amount" ng-model="amount" style='display:none;'></br></br>
 
   <input type="submit" value="add" />
 </form>

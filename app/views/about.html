@@ -1,10 +1,22 @@
-<input type="text" ng-model="nameFilter" placeholder="Search..."/>
-<ul ng-repeat="orders in ordersList | filter:{status:1} | filter: searchFilter"  ng-init="initFirst()">
-  <a href="http://52.27.27.85/#/orders/{{orders.id}}">
-  <li>
-    {{render(order)}}
-    {{orders.id}}
-    {{orders.owner}}
-  </li>
-  </a>
-</ul>
+<input type="text" ng-model="nameFilter" placeholder="OrderID or Username"/>
+
+<table style="width:100%">
+<thead>
+  <tr>
+        <th>Order ID</th>
+        <th>Name</th>
+        <th>Start Operations</th>
+
+  </tr>
+</thead>
+<tbody>
+  <tr ng-repeat="orders in ordersList | filter: {status:1}  |  filter: searchFilter  ">
+    <td>{{orders.id}}</td>
+    <td>{{orders.owner}}</td>
+      <td>
+       <a href="http://localhost:9000/#/orders/{{orders.id}}">
+          <p>GO</p>
+	  </a></td>
+  </tr>
+</tbody>
+</table>

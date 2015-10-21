@@ -65,7 +65,25 @@ angular
         controller: 'statusUpdateCtrlIron',
         controllerAs: 'statusIron'
       })
-
+      .when('/ship',{
+        templateUrl:'../views/ship.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'ship'
+      })
+      .when('/invoice',{
+        templateUrl: '../views/invoice.html',
+        controller:'',
+      })
+      .when('/slip', {
+        templateUrl: '../views/slip.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'about'
+      })
+      .when('/orderStatusShip/:id',{
+        template : '',
+        controller:'statusUpdateCtrlShip',
+        controllerAs : 'statusShip'
+      })
       .otherwise({
         redirectTo: '/'
       });

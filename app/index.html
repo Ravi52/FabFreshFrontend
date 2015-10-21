@@ -38,13 +38,14 @@
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" >
               <li ><a href="#/">Home</a></li>
               <li><a ng-href="#/orderlist">OrderList</a></li>
               <li><a ng-href="#/wash">Wash</a></li>
               <li><a ng-href="#/dry">Dry</a></li>
               <li><a ng-href="#/iron">Iron</a></li>
-              <li><a ng-href="#/">Ship</a></li>
+              <li><a ng-href="#/ship">Ship</a></li>
+              <li><a ng-href="#/slip">Slip</a></li>
             </ul>
           </div>
         </div>
@@ -73,6 +74,36 @@
        ga('send', 'pageview');
     </script>
 
+
+    <script>
+      function createDynamicURL()
+      {
+        var URL = "http://localhost:9000/slip.html?";
+
+      var quantity = document.getElementById("quantity").innerHTML;
+      var order_id = document.getElementById("order_id").innerHTML;
+      var process_id = document.getElementById("process_id").innerHTML;
+      var weight = document.getElementById("weight").innerHTML;
+
+      URL+="quantity=";
+      URL+=quantity;
+
+      URL+="&order_id=";
+      URL+=order_id;
+
+      URL+="&process_id=";
+      URL+=process_id;
+
+      URL+="&weight=";
+      URL+=weight;
+
+
+      return URL;
+    }
+
+    </script>
+
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -97,6 +128,7 @@
         <script src="scripts/controllers/setStatusWash.js"></script>
         <script src="scripts/controllers/setStatusDry.js"></script>
         <script src="scripts/controllers/setStatusIron.js"></script>
+        <script src="scripts/controllers/setStatusShip.js"></script>
         <!-- endbuild -->
 </body>
 </html>

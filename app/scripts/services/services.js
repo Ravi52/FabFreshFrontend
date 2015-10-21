@@ -1,16 +1,18 @@
 'use strict';
 angular.module('F1FeederApp.services', []).
   factory('ergastAPIservice', function($http, $q) {
-    $http.defaults.headers.common.Authorization = 'Bearer 29fEhsSxh0H8NBwzmwiopbmX90WkLa';
+    $http.defaults.headers.common.Authorization = 'Bearer XNW2F5i2WlY8bmlX2RicZEGsLMbz0b';
     $http.defaults.headers.post["Content-Type"] = "application/json";
     $http.defaults.headers.patch["Content-Type"] = "application/json";
     var ergastAPI = {};
 
 	var deferred = $q.defer();
-	
+
+	var URL = 'http://fabfresh-dev.elasticbeanstalk.com'
+
 	ergastAPI.getOrders = function() {
 		return $http({
-		    url : 'https://evening-refuge-7944.herokuapp.com/orders.json',
+		    url : URL + '/orders.json',
 		    method : 'GET'
 		})
 			.then(function(response){
@@ -30,7 +32,7 @@ angular.module('F1FeederApp.services', []).
       return $http({
         data : data,
         method : 'PATCH',
-        url : 'https://evening-refuge-7944.herokuapp.com/orders/'+id+'.json'
+        url : URL + '/orders/' +id+ '.json'
       })
       .then(function(response){
             deferred.resolve(response.data);
@@ -44,7 +46,7 @@ angular.module('F1FeederApp.services', []).
 	ergastAPI.getOrderDetails = function(id){
       return $http({
 	method : 'GET',
-        url : 'https://evening-refuge-7944.herokuapp.com/orders/'+ id + '.json'
+        url : URL + '/orders/'+ id + '.json'
       })
       .then(function(response){
             deferred.resolve(response.data);
@@ -57,16 +59,16 @@ angular.module('F1FeederApp.services', []).
 
     ergastAPI.setAmount = function(amount,id,weight,quantity){
       var data = {
-        "amount" : amount,
         "weight" : weight,
         "quantity" : quantity,
-        "status" : 2
+        "status" : "2",
+        "id" : id
       };
 
       return $http({
         data : data,
-        method : 'PATCH',
-        url: 'https://evening-refuge-7944.herokuapp.com/orders/'+ id +'.json'
+        method : 'POST',
+        url: URL + '/setAmount/'
       }).then(function(response){
             deferred.resolve(response.data);
                 return deferred.promise;
@@ -83,7 +85,7 @@ angular.module('F1FeederApp.services', []).
       return $http({
         data : data,
         method : 'PATCH',
-        url : 'https://evening-refuge-7944.herokuapp.com/orders/'+id+'.json'
+        url : URL + '/orders/'+id+'.json'
       });
 
     };
@@ -95,11 +97,27 @@ angular.module('F1FeederApp.services', []).
       return $http({
         data : data,
         method : 'PATCH',
-        url : 'https://evening-refuge-7944.herokuapp.com/orders/'+id+'.json'
+        url : URL + '/orders/'+id+'.json'
       });
     };
 
-
+    ergastAPI.setStatusShip = function(id){
+      var data = {
+        "status" : 6
+     };
+      return $http({
+        data : data,
+        method : 'PATCH',
+        url : URL + '/orders/' +id+ '.json'
+      })
+      .then(function(response){
+            deferred.resolve(response.data);
+                return deferred.promise;
+                },function(response){
+                    deferred.reject(response);
+                        return deferred.promise;
+                });
+    };
 
     return ergastAPI;
   });

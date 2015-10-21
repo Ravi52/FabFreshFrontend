@@ -21,7 +21,8 @@ angular.module('factoryPageApp')
     ergastAPIservice.setStatusWash($scope.id).success(function () {
 
       alert("Status updated");
-      $window.location.href = 'http://52.27.27.85/#/wash';
+      //$window.location.href = 'http://52.27.27.85/#/wash';
+      $window.location.href = 'http://localhost:9000/#/wash';
       $window.location.reload();
 
     }).error(function (data, status) {

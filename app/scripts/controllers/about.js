@@ -12,11 +12,12 @@ angular.module('factoryPageApp')
     $scope.nameFilter = null;
     $scope.ordersList = [];
 
+
     $scope.searchFilter = function (orders) {
       var re = new RegExp($scope.nameFilter, 'i');
-      return !$scope.nameFilter || re.test(orders.id) || re.test(orders.owner);
+      return !$scope.nameFilter || re.test(orders.id) || re.test(orders.owner) || re.test(orders.p_id);
     };
-	
+
     ergastAPIservice.getOrders()
 	.then(
 		function(response){

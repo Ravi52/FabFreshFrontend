@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+  <head>
+       <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+       <link rel="stylesheet" href="styles/main.css">
+
+  </head>
+  <body>
+
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script>
+            var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+       }
+    };
+            $(document).ready(function(){
+                document.getElementById("order_id").innerHTML = getUrlParameter('order_id');
+                document.getElementById("process_id").innerHTML = getUrlParameter('process_id');
+                document.getElementById("weight").innerHTML = getUrlParameter('weight');
+                document.getElementById("quantity").innerHTML = getUrlParameter('quantity');
+
+
+                document.getElementById("order_id1").innerHTML = getUrlParameter('order_id');
+                document.getElementById("process_id1").innerHTML = getUrlParameter('process_id');
+                document.getElementById("weight1").innerHTML = getUrlParameter('weight');
+                document.getElementById("quantity1").innerHTML = getUrlParameter('quantity');
+
+                document.getElementById("order_id2").innerHTML = getUrlParameter('order_id');
+                document.getElementById("process_id2").innerHTML = getUrlParameter('process_id');
+                document.getElementById("weight2").innerHTML = getUrlParameter('weight');
+                document.getElementById("quantity2").innerHTML = getUrlParameter('quantity');
+
+                document.getElementById("order_id3").innerHTML = getUrlParameter('order_id');
+                document.getElementById("process_id3").innerHTML = getUrlParameter('process_id');
+                document.getElementById("weight3").innerHTML = getUrlParameter('weight');
+                document.getElementById("quantity3").innerHTML = getUrlParameter('quantity');
+
+            });
+   </script>
+        <p>FabFresh</p>
+  <table style="width:100%" >
+<thead>
+  <tr>
+        <th>Order ID</th>
+        <th>ProcessId</th>
+        <th>Weight</th>
+      <th>Quantity</th>
+  </tr>
+</thead>
+<tbody>
+  <tr >
+    <td id ='order_id'></td>
+    <td id ='process_id'></td>
+    <td id ='weight'></td>
+    <td id ='quantity'></td>
+  </tr>
+</tbody>
+</table>
+
+<table style="width:100%" >
+<thead>
+  <tr>
+        <th>Order ID</th>
+        <th>ProcessId</th>
+        <th>Weight</th>
+      <th>Quantity</th>
+  </tr>
+</thead>
+<tbody>
+  <tr >
+    <td id ='order_id1'></td>
+    <td id ='process_id1'></td>
+    <td id ='weight1'></td>
+    <td id ='quantity1'></td>
+  </tr>
+</tbody>
+</table>
+
+<table style="width:100%" >
+<thead>
+  <tr>
+        <th>Order ID</th>
+        <th>ProcessId</th>
+        <th>Weight</th>
+      <th>Quantity</th>
+  </tr>
+</thead>
+<tbody>
+  <tr >
+    <td id ='order_id2'></td>
+    <td id ='process_id2'></td>
+    <td id ='weight2'></td>
+    <td id ='quantity2'></td>
+  </tr>
+</tbody>
+</table>
+
+  <table style="width:100%" >
+<thead>
+  <tr>
+        <th>Order ID</th>
+        <th>ProcessId</th>
+        <th>Weight</th>
+      <th>Quantity</th>
+  </tr>
+</thead>
+<tbody>
+  <tr >
+    <td id ='order_id3'></td>
+    <td id ='process_id3'></td>
+    <td id ='weight3'></td>
+    <td id ='quantity3'></td>
+  </tr>
+</tbody>
+</table>
+
+
+  </body>
+</html>

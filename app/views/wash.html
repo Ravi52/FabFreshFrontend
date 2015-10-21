@@ -1,10 +1,23 @@
 <input type="text" ng-model="nameFilter" placeholder="Search..."/>
-<ul ng-repeat="orders in ordersList | filter:{status:2} | filter: searchFilter">
-  <a href="/#/orderStatusWash/{{orders.id}}">
-  <li>
-    {{render(order)}}
-    {{orders.id}}
-    {{orders.owner}}
-  </li>
-  </a>
-</ul>
+
+<table style="width:100%">
+<thead>
+  <tr>
+        <th>Process ID</th>
+        <th>Name</th>
+      <th>Quantity</th>
+      <th>Wash Complete</th>
+  </tr>
+</thead>
+<tbody>
+  <tr ng-repeat="orders in ordersList | filter: {status:2} |  filter: searchFilter">
+    <td>{{orders.p_id}}</td>
+    <td>{{orders.owner}}</td>
+    <td>{{orders.quantity}}</td>
+      <td>
+       <a href="/#/orderStatusWash/{{orders.id}}">
+          <p>Next</p>
+	  </a></td>
+  </tr>
+</tbody>
+</table>

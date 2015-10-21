@@ -1,0 +1,33 @@
+<label> Enter the
+<input type="text" ng-model="nameFilter" placeholder="OrderID or Username"/>
+
+<table style="width:100%">
+<thead>
+  <tr>
+        <th>Order ID</th>
+        <th>Process Id</th>
+        <th>Name</th>
+        <th>amount</th>
+      <th>Weight</th>
+      <th>Quantity</th>
+      <th>Order Complete</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr ng-repeat="orders in ordersList  |  filter: searchFilter" >
+
+    <td id="order_id">{{orders.id}}</td>
+    <td id ="process_id">{{orders.p_id}}</td>
+    <td>{{orders.owner}}</td>
+    <td>{{orders.amount}}</td>
+      <td id="weight">{{orders.weight}}</td>
+      <td id="quantity">{{orders.quantity}}</td>
+      <td>
+       <a href="javascript:window.location=createDynamicURL();" class="cssbuttongo">
+        <p>submit & Ship</p>
+	  </a>
+      </td>
+  </tr>
+</tbody>
+</table>
