@@ -10,9 +10,9 @@ angular.module('factoryPageApp')
     .then(
 		function(response){
 			 alert("Status updated");
-             //$location.path('/iron');
-             //$window.location.href = 'http://52.27.27.85/#/iron';
-             $window.location.href = 'http://localhost:9000/#/ship';
+             $location.path('/iron');
+             $window.location.href = 'http://52.27.27.85/#/iron';
+             //$window.location.href = 'http://localhost:9000/#/ship';
              $window.location.reload();
 
 		},
