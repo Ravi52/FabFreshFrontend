@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fce39dce-614b-4964-83f5-3f5bb1bebacd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruntfile.js" afterPath="$PROJECT_DIR$/Gruntfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/orderUpdate.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/orderUpdate.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/setStatusDry.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/setStatusDry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/setStatusIron.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/setStatusIron.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/setStatusShip.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/setStatusShip.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/setStatusWash.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/setStatusWash.js" />
-    </list>
+    <list default="true" id="fce39dce-614b-4964-83f5-3f5bb1bebacd" name="Default" comment="" />
     <ignored path="FactoryPage.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
