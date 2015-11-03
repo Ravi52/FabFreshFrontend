@@ -73,18 +73,23 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script>
-
+	<script>
+	function orderType(){
+		var order_type = docment.getElementById("order_type").innerHTML;		if order_type = 0
+			document.getElementById("order_type").innerHTML = "Wash and Iron";		
+	}
+	</script>
 
     <script>
       function createDynamicURL()
       {
-        var URL = "http://localhost:9000/slip.html?";
+        var URL = "http://52.27.27.85/slip.html?";
 
       var quantity = document.getElementById("quantity").innerHTML;
       var order_id = document.getElementById("order_id").innerHTML;
       var process_id = document.getElementById("process_id").innerHTML;
       var weight = document.getElementById("weight").innerHTML;
-
+      var order_type = document.getElementById("order_type").innerHTML;
       URL+="quantity=";
       URL+=quantity;
 
@@ -97,6 +102,8 @@
       URL+="&weight=";
       URL+=weight;
 
+      URL+="&order_type=";
+      URL+=order_type;
 
       return URL;
     }

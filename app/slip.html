@@ -26,22 +26,29 @@
             $(document).ready(function(){
                 document.getElementById("order_id").innerHTML = getUrlParameter('order_id');
                 document.getElementById("process_id").innerHTML = getUrlParameter('process_id');
+		document.getElementById("order_type").innerHTML = getUrlParameter('order_type');
                 document.getElementById("weight").innerHTML = getUrlParameter('weight');
                 document.getElementById("quantity").innerHTML = getUrlParameter('quantity');
 
 
                 document.getElementById("order_id1").innerHTML = getUrlParameter('order_id');
                 document.getElementById("process_id1").innerHTML = getUrlParameter('process_id');
+		document.getElementById("order_type1").innerHTML = getUrlParameter('order_type');
+
                 document.getElementById("weight1").innerHTML = getUrlParameter('weight');
                 document.getElementById("quantity1").innerHTML = getUrlParameter('quantity');
 
                 document.getElementById("order_id2").innerHTML = getUrlParameter('order_id');
                 document.getElementById("process_id2").innerHTML = getUrlParameter('process_id');
+		document.getElementById("order_type2").innerHTML = getUrlParameter('order_type');
+
                 document.getElementById("weight2").innerHTML = getUrlParameter('weight');
                 document.getElementById("quantity2").innerHTML = getUrlParameter('quantity');
 
                 document.getElementById("order_id3").innerHTML = getUrlParameter('order_id');
                 document.getElementById("process_id3").innerHTML = getUrlParameter('process_id');
+		document.getElementById("order_type3").innerHTML = getUrlParameter('order_type');
+
                 document.getElementById("weight3").innerHTML = getUrlParameter('weight');
                 document.getElementById("quantity3").innerHTML = getUrlParameter('quantity');
 
@@ -51,8 +58,9 @@
   <table style="width:100%" >
 <thead>
   <tr>
-        <th>Order ID</th>
+        <th>Special Instructions</th>
         <th>ProcessId</th>
+	<th>order type</th>
         <th>Weight</th>
       <th>Quantity</th>
   </tr>
@@ -61,6 +69,7 @@
   <tr >
     <td id ='order_id'></td>
     <td id ='process_id'></td>
+    <td id='order_type'></td>
     <td id ='weight'></td>
     <td id ='quantity'></td>
   </tr>
@@ -70,8 +79,9 @@
 <table style="width:100%" >
 <thead>
   <tr>
-        <th>Order ID</th>
+        <th>Special Instructions</th>
         <th>ProcessId</th>
+	<th>order type</th>
         <th>Weight</th>
       <th>Quantity</th>
   </tr>
@@ -80,6 +90,8 @@
   <tr >
     <td id ='order_id1'></td>
     <td id ='process_id1'></td>
+	<td id='order_type1'></td>
+
     <td id ='weight1'></td>
     <td id ='quantity1'></td>
   </tr>
@@ -89,8 +101,9 @@
 <table style="width:100%" >
 <thead>
   <tr>
-        <th>Order ID</th>
+        <th>Special Instructions</th>
         <th>ProcessId</th>
+	<th>order type</th>
         <th>Weight</th>
       <th>Quantity</th>
   </tr>
@@ -99,6 +112,7 @@
   <tr >
     <td id ='order_id2'></td>
     <td id ='process_id2'></td>
+    <td id='order_type2'></td>
     <td id ='weight2'></td>
     <td id ='quantity2'></td>
   </tr>
@@ -108,8 +122,9 @@
   <table style="width:100%" >
 <thead>
   <tr>
-        <th>Order ID</th>
+        <th>Special Instructions</th>
         <th>ProcessId</th>
+	<th>order type</th>
         <th>Weight</th>
       <th>Quantity</th>
   </tr>
@@ -118,6 +133,7 @@
   <tr >
     <td id ='order_id3'></td>
     <td id ='process_id3'></td>
+    <td id='order_type3'></td>
     <td id ='weight3'></td>
     <td id ='quantity3'></td>
   </tr>

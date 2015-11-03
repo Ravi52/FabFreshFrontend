@@ -1,7 +1,7 @@
 'use strict';
 angular.module('F1FeederApp.services', []).
   factory('ergastAPIservice', function($http, $q) {
-    $http.defaults.headers.common.Authorization = 'Bearer XNW2F5i2WlY8bmlX2RicZEGsLMbz0b';
+    $http.defaults.headers.common.Authorization = 'Bearer 7tfZcHhz4XZrCgAymzTscbczugIRtX';
     $http.defaults.headers.post["Content-Type"] = "application/json";
     $http.defaults.headers.patch["Content-Type"] = "application/json";
     var ergastAPI = {};
