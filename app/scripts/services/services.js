@@ -1,14 +1,14 @@
 'use strict';
 angular.module('F1FeederApp.services', []).
   factory('ergastAPIservice', function($http, $q) {
-    $http.defaults.headers.common.Authorization = 'Bearer 7tfZcHhz4XZrCgAymzTscbczugIRtX';
+    $http.defaults.headers.common.Authorization = 'Bearer hari';
     $http.defaults.headers.post["Content-Type"] = "application/json";
     $http.defaults.headers.patch["Content-Type"] = "application/json";
     var ergastAPI = {};
 
 	var deferred = $q.defer();
 
-	var URL = 'http://fabfresh-dev.elasticbeanstalk.com'
+	var URL = 'http://fabfresh.elasticbeanstalk.com'
 
 	ergastAPI.getOrders = function() {
 		return $http({
