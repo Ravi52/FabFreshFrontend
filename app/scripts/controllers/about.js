@@ -21,6 +21,7 @@ angular.module('factoryPageApp')
     ergastAPIservice.getOrders()
 	.then(
 		function(response){
+       $scope.rowCollection = response;
 			 $scope.ordersList = response;
 		},
 		function(httpError){
@@ -28,7 +29,7 @@ angular.module('factoryPageApp')
 		}
 	);
 
-
+  
 
 	/*success(function (response) {
     	

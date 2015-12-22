@@ -1,21 +1,31 @@
 <input type="text" ng-model="nameFilter" placeholder="Search..."/>
 
-<table style="width:100%">
+<table style="width:100%" st-table="ordersList" class="table table-striped" st-safe-src="rowCollection">
 <thead>
   <tr>
-         <th>Process ID</th>
-        <th>Name</th>
-        <th>Quantity</th>
+        <th st-sort="id">Order Id</th>
+        <th st-sort="pid">Process ID</th>
+        <th st-sort="owner">Name</th>
+      <th st-sort="quantity">Quantity</th>
+      <th st-sort="modified_at_time">ModifiedDate</th>
+      <th st-sort="modified_at_time">ModifiedTime</th>
+      
       <th>Iron Complete</th>
   </tr>
 </thead>
 <tbody>
   <tr ng-repeat="orders in ordersList | filter: {status:4} |  filter: searchFilter">
+    <td>{{orders.id}}</td>
     <td>{{orders.p_id}}</td>
     <td>{{orders.owner}}</td>
     <td>{{orders.quantity}}</td>
+    <td>{{orders.modified_at_time | date:'d MMMM yyyy '  }}</td>
+    <td>{{orders.modified_at_time | date :'h:mm:ss'  }}</td>
+    
       <td>
-       <a href="http://52.27.27.85/#/orderStatusIron/{{orders.id}}">
+      <a href="http://52.27.27.85/#/orderStatusIron/{{orders.id}}"> 
+      <!-- <a href="#/orderStatusIron/{{orders.id}}"> -->
+       
           <p>Next</p>
 	  </a></td>
   </tr>

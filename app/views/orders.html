@@ -5,14 +5,74 @@
 
 <h2>{{order.owner}}</h2>
 
-<div ng-controller="OrderUpdateCtrl" >
-  <form ng-submit="submit()">
 
-  <input type="text" placeholder="Weight" ng-model="weight" id="ordertype" ></br></br>
+<div ng-controller="OrderUpdateCtrl" >
+  
+ 
+
+  <form ng-submit = "submitCloth()" name="myForm"> 
+
+  <div id = "type" class= "form-group" ng-class="{ 'has-error' : errorName }">
+  <select name="type" ng-model="selectedTestAccount" ng-options="item.type_id as item.type_name for item in testAccounts" required>
+    <option value="">Type</option>
+  </select>	
+ <span ng-show="myForm.type.$error.required" style="color:red"	>Select type</span>
+ 
+</div>
+  
+<div id = "color" class= "form-group" ng-class="{ 'has-error' : errorName }">
+  <select name = "color" ng-model="selectedColor" ng-options="item.color_id as item.color_name for item in colors" required>
+    <option value="">Color</option>
+  </select>
+ <span ng-show="myForm.color.$error.required" style="color:red"	>Select Color</span>
+ </div>
+<div id = "brand" class= "form-group" ng-class="{ 'has-error' : errorName }">
+  <select name = "brand" ng-model="selectedBrand" ng-options="item.brand_id as item.brand_name for item in brands" required>
+    <option value="">Brand</option>
+  </select>
+ <span ng-show="myForm.color.$error.required" style="color:red"	>Select Color</span>
+ </div>
+
+<div>
+  <select name="size" ng-model="selectedSize" ng-options="item.size_id as item.size_name for item in sizes" required>
+    <option value="">Size</option>
+  </select>
+<span ng-show="myForm.size.$error.required" style="color:red">Select Size</span>
+ </div>
+
+ 
+
+</br>
+ <div>
+
+  <select name="gender" ng-model="selectedGender" required>
+	<option value="male">Male</option>
+	<option value="female">Female</option>
+  </select>
+  <span ng-show="myForm.gender.$error.required" style="color:red">Select Gender</span>
+
+  </div>
+
+</br>
+
+<label>Damaged?</label>
+<input type="radio" name="somethign" value="true" ng-model="checkboxSelection" required /> Yes
+<input type="radio" name="somethign" value="false" ng-model="checkboxSelection" required /> No
+  <button ng-disabled="myForm.$invalid " type = "submit" class="btn btn-success btn-lg btn-block">
+  		<span class="glyphicon glyphicon-flash"></span> Add Cloths!
+  </button>
+</form> 	
+</br>
+
+<form ng-submit="submit()" name="myForm1">
+	<label style="Color:Green"> Add Weight and Quantity to Exit</label></br>
+  <input type="text" placeholder="Weight" ng-model="weight" id="ordertype" required></br></br>
   <input type="text" placeholder="Quantity" ng-model="quantity" required></br></br>
   <input type="text" placeholder="Amount" ng-model="amount" style='display:none;'></br></br>
 
-  <input type="submit" value="add" />
+  <button ng-disabled="myForm1.$invalid " type = "submit" class="btn btn-success btn-lg btn-block">
+  		<span class="glyphicon glyphicon-flash"></span> SUBMIT!!
+  </button>
 </form>
-</div>
 
+ </div>

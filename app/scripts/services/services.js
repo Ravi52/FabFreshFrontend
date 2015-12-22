@@ -9,8 +9,13 @@ angular.module('F1FeederApp.services', []).
 	var deferred = $q.defer();
 
 	var URL = 'http://fabfresh.elasticbeanstalk.com'
+  //var URL = 'http://localhost:8000'
+
+  
+
 
 	ergastAPI.getOrders = function() {
+
 		return $http({
 		    url : URL + '/orders.json',
 		    method : 'GET'
@@ -23,6 +28,68 @@ angular.module('F1FeederApp.services', []).
                 		return deferred.promise;			
 			});
 	};
+
+  ergastAPI.getClothType = function() {
+    var deferredType = $q.defer();
+    return $http({
+        url : URL + '/cloth/type/',
+        method : 'GET'
+    })
+      .then(function(response){
+        deferredType.resolve(response.data);
+                    return deferredType.promise;
+                },function(response){
+        deferredType.reject(response);
+                    return deferredType.promise;      
+      });
+  };
+
+  ergastAPI.getClothBrand = function() {
+    var deferredBrand = $q.defer();
+    return $http({
+        url : URL + '/cloth/brand/',
+        method : 'GET'
+    })
+      .then(function(response){
+        deferredBrand.resolve(response.data);
+                    return deferredBrand.promise;
+                },function(response){
+        deferredBrand.reject(response);
+                    return deferredBrand.promise;      
+      });
+  };  
+
+  ergastAPI.getClothColor = function() {
+    var deferredColor = $q.defer();
+    return $http({
+        url : URL + '/cloth/color/',
+        method : 'GET'
+    })
+      .then(function(response){
+        deferredColor.resolve(response.data);
+                    return deferredColor.promise;
+                },function(response){
+        deferredColor.reject(response);
+                    return deferredColor.promise;      
+      });
+  };
+
+  //For Size
+  ergastAPI.getClothSize = function() {
+    var deferredSize = $q.defer();
+    return $http({
+        url : URL + '/cloth/size/',
+        method : 'GET'
+    })
+      .then(function(response){
+        deferredSize.resolve(response.data);
+                    return deferredSize.promise;
+                },function(response){
+        deferredSize.reject(response);
+                    return deferredSize.promise;      
+      });
+  };
+
 
 	ergastAPI.setStatusIron = function(id){
       //deferred = $q.defer();
@@ -54,6 +121,30 @@ angular.module('F1FeederApp.services', []).
                 },function(response){
                     deferred.reject(response);
                         return deferred.promise;
+                });
+    };
+    ergastAPI.setCloths = function(color,type,size,brand,id,gender,damage){
+      var deferredCloths = $q.defer();
+      var data = {
+        "color": color,
+        "gender": gender,
+        "type": type,
+        "brand": brand,
+        "order": id,
+        "size": size,
+        "damage": damage
+
+      };
+      return $http({
+        data : data,
+        method : 'POST',
+        url: URL + '/cloth/cloths/'
+      }).then(function(response){
+            deferredCloths.resolve(response.data);
+                return deferredCloths.promise;
+                },function(response){
+                    deferredCloths.reject(response);
+                        return deferredCloths.promise;
                 });
     };
 

@@ -5,10 +5,12 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <META HTTP-EQUIV="refresh" CONTENT="120">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -33,7 +35,7 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/">FabFresh</a>
+            <a class="navbar-brand" href="#/"></a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
@@ -79,7 +81,7 @@
 			document.getElementById("order_type").innerHTML = "Wash and Iron";		
 	}
 	</script>
-
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
     <script>
       function createDynamicURL()
       {
@@ -122,6 +124,10 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

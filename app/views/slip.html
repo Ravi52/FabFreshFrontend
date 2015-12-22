@@ -1,10 +1,11 @@
-<label> Enter the
+<label> Enter the </label>
 <input type="text" ng-model="nameFilter" placeholder="OrderID or Username"/>
-<table style="width:100%">
+<table style="width:100%" st-table="ordersList" class="table table-striped">
 <thead>
   <tr>
-        <th>Special Instructions</th>
+        <th>OrderId</th>
         <th>Process Id</th>
+
         <th>Name</th>
         <th>amount</th>
       <th>Weight</th>
@@ -17,7 +18,7 @@
 <tbody>
   <tr ng-repeat="orders in ordersList  |  filter: searchFilter" >
 
-    <td id="order_id">{{orders.special_instructions}}</td>
+    <td id="order_id">{{orders.id}}</td>
     <td id ="process_id">{{orders.p_id}}</td>
     <td>{{orders.owner}}</td>
     <td>{{orders.amount}}</td>
