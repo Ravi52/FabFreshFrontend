@@ -10,7 +10,7 @@ angular.module('F1FeederApp.services', []).
 
 	var URL = 'http://fabfresh.elasticbeanstalk.com'
   //var URL = 'http://localhost:8000'
-
+  //var URL = 'http://fabfresh-dev.elasticbeanstalk.com'
   
 
 
@@ -152,7 +152,7 @@ angular.module('F1FeederApp.services', []).
       var data = {
         "weight" : weight,
         "quantity" : quantity,
-        "status" : "2",
+        "status" : "5",
         "id" : id
       };
 
@@ -169,7 +169,9 @@ angular.module('F1FeederApp.services', []).
                 });
     };
 
-    ergastAPI.setStatusWash = function(id){
+    
+    //Created Stage 1[created] to 3[recieved]
+    ergastAPI.setStatusCreated = function(id){
       var data = {
         "status" : 3
       };
@@ -181,9 +183,23 @@ angular.module('F1FeederApp.services', []).
 
     };
 
-    ergastAPI.setStatusDry = function(id){
+    //Received complete stage 3[recieved] to 4[tagging]
+    ergastAPI.setStatusRecieved = function(id){
       var data = {
         "status" : 4
+      };
+      return $http({
+        data : data,
+        method : 'PATCH',
+        url : URL + '/orders/'+id+'.json'
+      });
+    };    
+
+    
+    //Tagging complete stage 4[precheck] to 5[Tagging]
+    ergastAPI.setStatusPrecheck = function(id){
+      var data = {
+        "status" : 5
      };
       return $http({
         data : data,
@@ -192,9 +208,69 @@ angular.module('F1FeederApp.services', []).
       });
     };
 
-    ergastAPI.setStatusShip = function(id){
+    
+    //Pre check stage 5[tagging] to 6[wash] 
+    ergastAPI.setStatusTagging = function(id){
       var data = {
         "status" : 6
+      };
+      return $http({
+        data : data,
+        method : 'PATCH',
+        url : URL + '/orders/'+id+'.json'
+      });
+
+    };
+
+    //Wash stage 6[wash] to 7[dry]
+    ergastAPI.setStatusWash = function(id){
+      var data = {
+        "status" : 7
+      };
+      return $http({
+        data : data,
+        method : 'PATCH',
+        url : URL + '/orders/'+id+'.json'
+      });
+
+    };
+
+    //Dry stage 7[dry] to 8[iron]
+    ergastAPI.setStatusDry = function(id){
+      var data = {
+        "status" : 8
+      };
+      return $http({
+        data : data,
+        method : 'PATCH',
+        url : URL + '/orders/'+id+'.json'
+      });
+
+    };
+
+    //iron stage 8[iron] to 9[package]
+    ergastAPI.setStatusIron = function(id){
+      //deferred = $q.defer();
+      var data = {
+        "status" : 9
+     };
+      return $http({
+        data : data,
+        method : 'PATCH',
+        url : URL + '/orders/' +id+ '.json'
+      })
+      .then(function(response){
+            deferred.resolve(response.data);
+                return deferred.promise;
+                },function(response){
+                    deferred.reject(response);
+                        return deferred.promise;
+                });
+    };
+
+    ergastAPI.setStatusShip = function(id){
+      var data = {
+        "status" : 10
      };
       return $http({
         data : data,

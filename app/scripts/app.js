@@ -26,6 +26,58 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+
+      //For Created Page
+      .when('/created',{
+        templateUrl : '../views/created.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'about'
+      })
+      .when('/orderStatusCreated/:id',{
+        template : '',
+        controller: 'statusUpdateCtrlCreated',
+        controllerAs: 'statusCreated'
+      })
+
+      //Recieved at processing center
+
+      .when('/recieve',{
+        templateUrl : '../views/recieved.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'about'
+      })
+      .when('/orderStatusRecieved/:id',{
+        template : '',
+        controller: 'statusUpdateCtrlRecieve',
+        controllerAs: 'statusCreated'
+      })
+
+      //For Tagging Page
+      .when('/tagging',{
+        templateUrl : '../views/tagging.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'about'
+      })
+      .when('/orderStatusTagging/:id',{
+        template : '',
+        controller: 'statusUpdateCtrlTagging',
+        controllerAs: 'statusTagging'
+      })
+
+      //For PreCheck
+      .when('/precheck',{
+        templateUrl : '../views/precheck.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'about'
+      })
+      .when('/orderStatusPrecheck/:id',{
+        template : '',
+        controller: 'statusUpdateCtrlprecheck',
+        controllerAs: 'statusprecheck'
+      })      
+
+
+
       .when('/orderlist', {
         templateUrl: '../views/about.html',
         controller: 'AboutCtrl',

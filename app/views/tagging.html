@@ -13,19 +13,20 @@
         <th st-sort="created_at_time"> date created</th>
         <th st-sort="created_at_time">time created</th>
         <th>Start Operations</th>
+        
+
   </tr>
   
 </thead>
 <tbody>
-  <tr ng-repeat="orders in ordersList | filter: {status:1}  |  filter: searchFilter  ">
+  <tr ng-repeat="orders in ordersList | filter: {status:5}  |  filter: searchFilter  ">
     <td>{{orders.id}}</td>
     <td>{{orders.owner}}</td>
-    <td>{{orders.created_at_time | date:'d MMMM yyyy' }}</td>
+    <td>{{orders.created_at_time | date:'d MMMM yyyy '  }}</td>
     <td>{{orders.created_at_time | date :'h:mm:ss'  }}</td>
       <td>
-       <a href="http://52.27.27.85/#/orders/{{orders.id}}"> 
-       <!-- <a href="http://localhost:9000/#/orders/{{orders.id}}"> -->
-
+       <!-- <a href="http://52.27.27.85/#/orders/{{orders.id}}"> -->
+       <a href="#/orderStatusTagging/{{orders.id}}"> 
           <p>GO</p>
 	  </a></td>
   </tr>

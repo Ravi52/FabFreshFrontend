@@ -15,7 +15,7 @@ angular.module('factoryPageApp')
 
     $scope.searchFilter = function (orders) {
       var re = new RegExp($scope.nameFilter, 'i');
-      return !$scope.nameFilter || re.test(orders.id) || re.test(orders.owner) || re.test(orders.p_id);
+      return !$scope.nameFilter || re.test(orders.id) ;
     };
 
     ergastAPIservice.getOrders()
