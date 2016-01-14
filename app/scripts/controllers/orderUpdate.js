@@ -23,7 +23,7 @@ angular.module('factoryPageApp')
     function(response){
       
       $scope.sizes = response;
-
+	alert($scope.sizes)
       },
     function(httpError){
         alert("size not available");
@@ -70,7 +70,7 @@ ergastAPIservice.getClothBrand()
   );
 
     $scope.submitCloth = function(){
-      ergastAPIservice.setCloths($scope.selectedSize,$scope.selectedTestAccount,$scope.selectedColor,$scope.selectedBrand,$scope.id,$scope.selectedGender,$scope.checkboxSelection)
+      ergastAPIservice.setCloths($scope.selectedColor,$scope.selectedTestAccount,$scope.selectedSize,$scope.selectedBrand,$scope.id,$scope.selectedGender,$scope.checkboxSelection)
       .then(function(response){
         alert("success ");
         $window.location.reload();
