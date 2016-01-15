@@ -123,9 +123,10 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'ship'
       })
-      .when('/invoice',{
+      .when('/invoice/:id',{
         templateUrl: '../views/invoice.html',
-        controller:'',
+        controller:'reciept',
+        controllerAs : 'reciept'
       })
       .when('/slip', {
         templateUrl: '../views/slip.html',

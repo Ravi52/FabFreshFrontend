@@ -23,7 +23,7 @@ angular.module('factoryPageApp')
     function(response){
       
       $scope.sizes = response;
-	alert($scope.sizes)
+	       //alert($scope.sizes)
       },
     function(httpError){
         alert("size not available");
@@ -85,8 +85,8 @@ ergastAPIservice.getClothBrand()
     .then(
 		function(response){
 			alert("Shipment Added to operations");
-            $window.location.href = 'http://52.27.27.85/#/orderlist';
-            //$window.location.href = 'http://localhost:9000/#/precheck';
+            //$window.location.href = 'http://52.27.27.85/#/orderlist';
+            $window.location.href = 'http://localhost:9000/#/precheck';
             $window.location.reload();
 		},
 		function(httpError){

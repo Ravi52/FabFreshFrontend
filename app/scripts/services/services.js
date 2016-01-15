@@ -8,8 +8,8 @@ angular.module('F1FeederApp.services', []).
 
 	var deferred = $q.defer();
 
-	var URL = 'http://fabfresh.elasticbeanstalk.com'
-  //var URL = 'http://localhost:8000'
+	//var URL = 'http://fabfresh.elasticbeanstalk.com'
+  var URL = 'http://localhost:8000'
   //var URL = 'http://fabfresh-dev.elasticbeanstalk.com'
   
 
@@ -42,6 +42,25 @@ angular.module('F1FeederApp.services', []).
         deferredType.reject(response);
                     return deferredType.promise;      
       });
+  };
+
+
+  ergastAPI.getClothPrice = function(id){
+      var deferredPrice = $q.defer();
+      return $http({
+          //url : URL + '/order/reciept?id=45.json',
+          method : 'GET',
+          url : URL + '/order/reciept/',  
+          params: {
+            "id" : id
+          }
+      }).then(function(response){
+            deferredPrice.resolve(response.data);
+                return deferredPrice.promise;
+                },function(response){
+                    deferredPrice.reject(response);
+                        return deferredPrice.promise;
+                });
   };
 
   ergastAPI.getClothBrand = function() {
@@ -267,6 +286,7 @@ angular.module('F1FeederApp.services', []).
                         return deferred.promise;
                 });
     };
+    
 
     ergastAPI.setStatusShip = function(id){
       var data = {

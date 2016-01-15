@@ -5,18 +5,21 @@
 		<title>Invoice</title>
 		<link rel="stylesheet" href="styles/invoice.css">
 		<link rel="license" href="http://www.opensource.org/licenses/mit-license/">
-		<script src="script.js"></script>
+		
 	</head>
 	<body>
 		<header>
 			<h1>Invoice</h1>
 			<address contenteditable>
-				<p>Hari</p>
-				<p>Address Line 1<br>Address Line 2</p>
-				<p>phone number</p>
+				<p>FABFRESH</p>
+				<p>MoonShot Technologies pvt ltd</p>
+				<p>No.99, Koramangala Industrial Area 5th Block<br>Kormangala Bangalore - 95</p>
+				<p>customercare@fabfresh.in</p>
 			</address>
-			<span><img alt="" src="logo.png"><input type="file" accept="image/*"></span>
+			<span><img alt="" src="images/rsz_logo_large.png"><input type="file" accept="image/*"></span>
 		</header>
+<div ng-repeat="order in ordersList" ng-show = "$first" >
+
 		<article>
 			<h1>Recipient</h1>
 			<address contenteditable>
@@ -25,58 +28,68 @@
 			<table class="meta">
 				<tr>
 					<th><span contenteditable>Invoice #</span></th>
-					<td><span contenteditable>101138</span></td>
+					<td><span contenteditable>{{order.invoiceid}}</span></td>
 				</tr>
 				<tr>
 					<th><span contenteditable>Date</span></th>
-					<td><span contenteditable>January 1, 2015</span></td>
+					<td><span contenteditable>{{order.created_at_time | date:'MM/dd/yyyy'}}</span></td>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<th><span contenteditable>Amount Due</span></th>
 					<td><span id="prefix" contenteditable>$</span><span>600.00</span></td>
-				</tr>
-			</table>
-			<table class="inventory">
-				<thead>
-					<tr>
-						<th><span contenteditable>Item</span></th>
-						<th><span contenteditable>Description</span></th>
-						<th><span contenteditable>Rate</span></th>
-						<th><span contenteditable>Quantity</span></th>
-						<th><span contenteditable>Price</span></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><a class="cut">-</a><span contenteditable>Front End Consultation</span></td>
-						<td><span contenteditable>Experience Review</span></td>
-						<td><span data-prefix>$</span><span contenteditable>150.00</span></td>
-						<td><span contenteditable>4</span></td>
-						<td><span data-prefix>$</span><span>600.00</span></td>
-					</tr>
-				</tbody>
-			</table>
+				</tr> -->
+		</table>
+    <table style="width:100%" st-table="ordersList" class="table table-striped" >
+    <thead>
+        <tr>
+
+        <th st-sort="typeName" > Item</th>
+        <th st-sort="typeQuantity">Quantity</th>
+        <th st-sort="typePrice">Rate</th>
+        <th st-sort="total">Price</th>
+
+       	
+      </tr> 
+    </thead>
+<tbody>
+  <tr ng-repeat="orders in ordersList ">
+    <td>{{orders.typeName}}</td>
+    <td>{{orders.typeQuantity}}</td>
+    <td>&#8377; {{orders.typePrice}}</td>
+    <td>{{orders.total}}</td>
+    
+    
+  </tr>
+</tbody>
+
+</table >
 			<a class="add">+</a>
-			<table class="balance">
-				<tr>
+			<table class="balance" >
+				
+
+				<tr >
+					<th ><span contenteditable></span>Gross</th>
+					<td><span data-prefix>&#8377;</span><span>{{order.amount}}</span></td>
+				</tr>
+				<tr >
+					<th><span contenteditable>Discounted Amount</span></th>
+					<td><span data-prefix>&#8377;</span><span contenteditable>{{order.amount - order.afterDiscount}}</span></td>
+				</tr>
+				<tr >
 					<th><span contenteditable>Total</span></th>
-					<td><span data-prefix>$</span><span>600.00</span></td>
+					<td><span data-prefix>&#8377;</span><span contenteditable>{{order.afterDiscount}}</span></td>
 				</tr>
-				<tr>
-					<th><span contenteditable>Amount Paid</span></th>
-					<td><span data-prefix>$</span><span contenteditable>0.00</span></td>
-				</tr>
-				<tr>
-					<th><span contenteditable>Balance Due</span></th>
-					<td><span data-prefix>$</span><span>600.00</span></td>
-				</tr>
+
+		
 			</table>
 		</article>
 		<aside>
 			<h1><span contenteditable>Additional Notes</span></h1>
 			<div contenteditable>
-				<p>A finance charge of 1.5% will be made on unpaid balances after 30 days.</p>
+				<p></p>
 			</div>
 		</aside>
+	</table>
+</div>
 	</body>
 </html>

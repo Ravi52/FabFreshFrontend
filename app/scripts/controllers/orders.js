@@ -16,13 +16,6 @@ angular.module('factoryPageApp')
     $scope.ordersList = [];
     $scope.order = null;
 
-   /* ergastAPIservice.getOrderDetails($scope.id).success(function (response) {
-      $scope.order = response;
-
-    }).error(function(data) {
-      alert(data);
-    });
-*/
     ergastAPIservice.getOrderDetails($scope.id)
      .then(
 		function(response){

@@ -23,6 +23,7 @@ angular.module('factoryPageApp')
 		function(response){
        $scope.rowCollection = response;
 			 $scope.ordersList = response;
+       
 		},
 		function(httpError){
 			throw httpError.status;		

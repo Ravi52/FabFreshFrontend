@@ -1,0 +1,52 @@
+<div class="box">
+  <div class="container-1">
+      <span class="icon"><i class="fa fa-search"></i></span>
+      <input type="search" id="search" ng-model="nameFilter" placeholder="Enter OrderId"/>
+  </div>
+</div>
+
+<table style="width:100%" st-table="ordersList" class="table table-striped" st-safe-src="rowCollection">
+<thead>
+  <tr>
+        <th st-sort="id">Order Id</th>
+        <th st-sort="pid">Process ID</th>
+        <th st-sort="owner">Name</th>
+      <th st-sort="amount">Amount</th>
+      <th st-sort="weight">Weight</th>
+      <th st-sort="quantity">Quantity</th>
+      <th st-sort="created_at_time">date created</th>
+      <th st-sort="created_at_time">time created</th>
+        
+      <th st-sort="modified_at_time">ModifiedDate</th>
+      <th st-sort="modified_at_time">ModifiedTime</th>
+      
+      <th>Order Complete</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr ng-repeat="orders in ordersList | filter: {status:9} |  filter: searchFilter" >
+
+    <td id="order_id">{{orders.id}}</td>
+    <td id ="process_id">{{orders.p_id}}</td>
+    <td>{{orders.owner}}</td>
+    <td>{{orders.amount}}</td>
+      <td id="weight">{{orders.weight}}</td>
+      <td id="quantity">{{orders.quantity}}</td>
+      <td>{{orders.created_at_time | date:'d MMMM yyyy '  }}</td>
+      <td>{{orders.created_at_time | date :'h:mm:ss'  }}</td>
+    
+      <td>{{orders.modified_at_time | date:'d MMMM yyyy '  }}</td>
+      <td>{{orders.modified_at_time | date :'h:mm:ss'  }}</td>
+    
+      <td>
+        <a href="#/orderStatusShip/{{orders.id}}" >
+       
+       <!-- <a href="http://localhost:9000/#/orderStatusShip/{{orders.id}}" >
+       -->
+        <p>Ship</p>
+	  </a>
+      </td>
+  </tr>
+</tbody>
+</table>
