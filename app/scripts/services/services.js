@@ -8,8 +8,8 @@ angular.module('F1FeederApp.services', []).
 
 	var deferred = $q.defer();
 
-	//var URL = 'http://fabfresh.elasticbeanstalk.com'
-  var URL = 'http://localhost:8000'
+	var URL = 'http://fabfresh.elasticbeanstalk.com'
+ // var URL = 'http://localhost:8000'
   //var URL = 'http://fabfresh-dev.elasticbeanstalk.com'
   
 
@@ -62,6 +62,25 @@ angular.module('F1FeederApp.services', []).
                         return deferredPrice.promise;
                 });
   };
+	
+	//orderslist with status params
+  ergastAPI.orderListStatus = function(id){
+      var deferredPrice = $q.defer();
+      return $http({
+          method : 'GET',
+          url : URL + '/orders/',  
+          params: {
+            "status" : id
+          }
+      }).then(function(response){
+            deferredPrice.resolve(response.data);
+                return deferredPrice.promise;
+                },function(response){
+                    deferredPrice.reject(response);
+                        return deferredPrice.promise;
+                });
+  };
+
 
   ergastAPI.getClothBrand = function() {
     var deferredBrand = $q.defer();

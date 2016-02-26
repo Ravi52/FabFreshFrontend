@@ -19,7 +19,7 @@
   
 </thead>
 <tbody>
-  <tr ng-repeat="orders in ordersList | orderBy:'id'| filter: {status:2} |  filter: searchFilter ">
+  <tr ng-repeat="orders in ordersList | orderBy:'id'|  filter: searchFilter ">
     <td>{{orders.id}}</td>
     <td>{{orders.owner}}</td>
     <td>{{orders.created_at_time | date:'d MMMM yyyy '  }}</td>

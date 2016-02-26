@@ -8,17 +8,17 @@
  * Controller of the factoryPageApp
  */
 angular.module('factoryPageApp')
-  .controller('AboutCtrl', function($scope, ergastAPIservice, $q) {
+  .controller('AboutCtrl', function($scope, ergastAPIservice, $q,$routeParams) {
     $scope.nameFilter = null;
     $scope.ordersList = [];
-
+    $scope.id = $routeParams.id;
 
     $scope.searchFilter = function (orders) {
       var re = new RegExp($scope.nameFilter, 'i');
       return !$scope.nameFilter || re.test(orders.id) ;
     };
 
-    ergastAPIservice.getOrders()
+    /* ergastAPIservice.getOrders()
 	.then(
 		function(response){
        $scope.rowCollection = response;
@@ -28,17 +28,17 @@ angular.module('factoryPageApp')
 		function(httpError){
 			throw httpError.status;		
 		}
-	);
-
-  
-
-	/*success(function (response) {
-    	
-      $scope.ordersList = response;
-	
-    }).error(function(data, status) {
-      alert(status);
-	
-    });*/
-	
+	)*/
+	ergastAPIservice.orderListStatus($scope.id)
+  .then(
+    function(response){
+       $scope.rowCollection = response;
+       $scope.ordersList = response;
+       
+    },
+    function(httpError){
+      throw httpError.status;   
+    }
+  )
   });
+

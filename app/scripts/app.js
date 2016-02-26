@@ -11,12 +11,12 @@
 angular
   .module('factoryPageApp', [
     'F1FeederApp.services',
-    'ngAnimate',
-    'ngCookies',
+    //'ngAnimate',
+    //'ngCookies',
     'ngResource',
     'ngRoute',
-    'ngSanitize',
-    'ngTouch',
+    //'ngSanitize',
+    //'ngTouch',
     'smart-table'
       ])
   .config(function ($routeProvider) {
@@ -26,13 +26,16 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-
+      
       //For Created Page
-      .when('/created',{
+      
+      .when('/created/:id',{
+
         templateUrl : '../views/created.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      
       .when('/orderStatusCreated/:id',{
         template : '',
         controller: 'statusUpdateCtrlCreated',
@@ -41,7 +44,7 @@ angular
 
       //Recieved at processing center
 
-      .when('/recieve',{
+      .when('/recieve/:id',{
         templateUrl : '../views/recieved.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
@@ -53,7 +56,7 @@ angular
       })
 
       //For Tagging Page
-      .when('/tagging',{
+      .when('/tagging/:id',{
         templateUrl : '../views/tagging.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
@@ -65,7 +68,7 @@ angular
       })
 
       //For PreCheck
-      .when('/precheck',{
+      .when('/precheck/:id',{
         templateUrl : '../views/precheck.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
@@ -88,17 +91,17 @@ angular
         controller: 'OrderCtrl',
         controllerAs: 'order'
       })
-      .when('/wash', {
+      .when('/wash/:id', {
         templateUrl: '../views/wash.html',
         controller: 'AboutCtrl',
         controllerAs: 'wash'
       })
-      .when('/dry', {
+      .when('/dry/:id', {
         templateUrl: '../views/dry.html',
         controller: 'AboutCtrl',
         controllerAs: 'dry'
       })
-      .when('/iron',{
+      .when('/iron/:id',{
         templateUrl:'../views/iron.html',
         controller: 'AboutCtrl',
         controllerAs: 'iron'
@@ -118,7 +121,7 @@ angular
         controller: 'statusUpdateCtrlIron',
         controllerAs: 'statusIron'
       })
-      .when('/ship',{
+      .when('/ship/:id',{
         templateUrl:'../views/ship.html',
         controller: 'AboutCtrl',
         controllerAs: 'ship'
@@ -128,7 +131,7 @@ angular
         controller:'reciept',
         controllerAs : 'reciept'
       })
-      .when('/slip', {
+      .when('/slip/:id', {
         templateUrl: '../views/slip.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
@@ -142,3 +145,4 @@ angular
         redirectTo: '/'
       });
   });
+

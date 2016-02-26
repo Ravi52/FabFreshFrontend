@@ -9,8 +9,8 @@ angular.module('factoryPageApp')
     ergastAPIservice.setStatusWash($scope.id).success(function () {
 
       alert("Status updated");
-      //$window.location.href = 'http://52.27.27.85/#/wash';
-      $window.location.href = 'http://localhost:9000/#/wash';
+      $window.location.href = 'http://52.27.27.85/#/wash/6';
+      //$window.location.href = 'http://localhost:9000/#/wash';
       $window.location.reload();
 
     }).error(function (data, status) {
@@ -23,8 +23,8 @@ angular.module('factoryPageApp')
     ergastAPIservice.setStatusCreated($scope.id).success(function () {
 
       alert("Status updated");
-      //$window.location.href = 'http://52.27.27.85/#/created';
-      $window.location.href = 'http://localhost:9000/#/created';
+      $window.location.href = 'http://52.27.27.85/#/created/2';
+      //$window.location.href = 'http://localhost:9000/#/created';
       $window.location.reload();
 
     }).error(function (data, status) {
@@ -37,8 +37,8 @@ angular.module('factoryPageApp')
     ergastAPIservice.setStatusRecieved($scope.id).success(function () {
 
       alert("Status updated");
-      //$window.location.href = 'http://52.27.27.85/#/recieve';
-      $window.location.href = 'http://localhost:9000/#/recieve';
+      $window.location.href = 'http://52.27.27.85/#/recieve/3';
+      //$window.location.href = 'http://localhost:9000/#/recieve';
       $window.location.reload();
 
     }).error(function (data, status) {
@@ -52,8 +52,8 @@ angular.module('factoryPageApp')
     ergastAPIservice.setStatusTagging($scope.id).success(function () {
 
       alert("Status updated");
-      //$window.location.href = 'http://52.27.27.85/#/tagging';
-      $window.location.href = 'http://localhost:9000/#/tagging';
+      $window.location.href = 'http://52.27.27.85/#/tagging/5';
+      //$window.location.href = 'http://localhost:9000/#/tagging';
       $window.location.reload();
 
     }).error(function (data, status) {
@@ -67,8 +67,8 @@ angular.module('factoryPageApp')
     ergastAPIservice.setStatusPrecheck($scope.id).success(function () {
 
       alert("Status updated");
-      //$window.location.href = 'http://52.27.27.85/#/precheck';
-      $window.location.href = 'http://localhost:9000/#/precheck';
+      $window.location.href = 'http://52.27.27.85/#/precheck/4';
+      //$window.location.href = 'http://localhost:9000/#/precheck';
       $window.location.reload();
 
     }).error(function (data, status) {

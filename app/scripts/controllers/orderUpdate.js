@@ -85,8 +85,8 @@ ergastAPIservice.getClothBrand()
     .then(
 		function(response){
 			alert("Shipment Added to operations");
-            //$window.location.href = 'http://52.27.27.85/#/orderlist';
-            $window.location.href = 'http://localhost:9000/#/precheck';
+            $window.location.href = 'http://52.27.27.85/#/precheck/4';
+            //$window.location.href = 'http://localhost:9000/#/precheck';
             $window.location.reload();
 		},
 		function(httpError){
